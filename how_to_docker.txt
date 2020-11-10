@@ -1,0 +1,25 @@
+How this was made: 
+
+1. download and install pip, python3, python virtualenv, nameko, docker
+2. start a python virtual environment in a chosen directory. https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/
+by typing "virtualenv docktest" into console. This Creates a python virtual environment. 
+3. Then run "docktest\Scripts\activate" in the console, and the virtual environment will be activated.
+now the name of the environment will be in brackets on each command line of the console
+4. Inside the console run "pip install nameko" to install nameko into the environment. 
+5. run "docker run -p 5672:5672 --hostname nameko-rabbitmq rabbitmq:3" in the same console to start a docker on port 5672
+6. create a python file hello.py woith contents:
+
+from nameko.rpc import rpc
+
+
+class GreetingService:
+    name = "greeting_service"
+
+    @rpc
+    def hello(self, name):
+        return "Hello, {}!".format(name)
+
+7.open another console window, cd into the directory and run "nameko run hello"
+8.run "nameko shell" in another shell to speak to the running service
+9.run n.rpc.{service name}.{function name}({parameter name}={parameter value}) in the shell, and it will talk back! And you're done.
+10. "deactivate" in console to deactivate the environment

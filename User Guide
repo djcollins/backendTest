@@ -1,0 +1,20 @@
+How this was made: 
+
+1. download and install pip, python3, python virtualenv, nameko, docker
+2. start a python virtual environment in a chosen 
+directory.by typing "virtualenv docktest" into console. This Creates a python virtual environment. 
+https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/ 
+3. Then run "docktest\Scripts\activate" in the console, and the virtual environment will be activated.
+now the name of the environment will be in brackets on each command line of the console
+4. Inside the console run "pip install nameko" to install nameko into the environment. 
+5. run "docker run -p 5672:5672 --hostname nameko-rabbitmq rabbitmq:3" in the same console to start a docker on port 5672
+6. create a python file using the Python Microservice template, found on https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/.
+7.open another console window, cd into the directory and run "nameko run Microservice"
+8.run "nameko shell" in another shell to speak to the running service
+9.run n.rpc.micro_service.{function_name}.(parameters) in the shell, and it will talk back! And you're done.
+10. "deactivate" in console to deactivate the environment
+
+example calls in nameko shell: 
+n.rpc.micro_service.encode_strings(str_list=["Daniel","1234","foo","bar"])
+n.rpc.micro_servicea.decode_string(string="b'\\xfa _\\xa4'")
+n.rpc.micro_service.square_odd(num_list=[-1,-2,-3,4,5,6,7,8,9,10])

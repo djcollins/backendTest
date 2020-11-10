@@ -27,6 +27,9 @@ Developers will have to ensure that updates are compatible with other microservi
 I decided to import a huffman encoding package instead of creating one. After a few minutes of research into what it entailed I decided to follow the rule of 
 "Dont recreate the wheel" and import dahuffman module from PyPi. 
 
+One big decision here was to use the load_shakespear character encoding, since with Huffman compression, the more characters present, the longer the encoded symbols.
+Since specials symbols should not appear often in communication between Microservice, this seemed appropriate. 
+
 I thought I would keep the code structure as standard as possible. Using a dictionary to store my variables just made sense.
 I also decided to make a dictionary that stored the byte encoded bytes of a string as a string, because for testing via console commands, it wasn't possible to input bytes as function paramaters via console. 
 

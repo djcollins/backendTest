@@ -1,7 +1,7 @@
 # Backend Engineering test - Daniel Collins
 
 ## What did I think about the task?
-The task seemed daunting at first, I haven't created a container before and I wasn't too sure how it was different from a Virtual Machine. 
+
 With new applications and frameworks the biggest hurdle is usually the setup. And naturally, that's what happened this time.
 I eventually found a tutorial that mentioned the main checkpoints in creating and running an application on Docker. I just had to 
 fill in the blanks where steps and instructions were left out.
